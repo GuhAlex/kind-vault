@@ -6,7 +6,7 @@
 - vault   >= v1.9.0
 - kubectl >= v1.22.4
 ---
-## About :exclamation:
+## About 
 Simple Kind Cluster with HashiCorp Vault to help in lab tests :grin:
 
 
@@ -41,6 +41,11 @@ set variables
 export VAULT_TOKEN=`grep -o "\bs.*"  .tokens`
 export VAULT_ADDR=`sudo kubectl get ingress vault-ingress -n default  -o jsonpath='{"http://"}{.spec.rules[].host}{"\n"}'`
 ```
+
+> #### Warning :warning:
+> you will need to [unseal](https://www.vaultproject.io/docs/concepts/seal) the vault before using it with the tokens in .token file
+
+
 ---
 ### Optional
 
