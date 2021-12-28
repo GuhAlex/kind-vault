@@ -6,7 +6,7 @@
 - vault   >= v1.9.0
 - kubectl >= v1.22.4
 ---
-## About 
+## About
 Simple Kind Cluster with HashiCorp Vault to help in lab tests :grin:
 
 
@@ -38,7 +38,7 @@ echo "127.0.0.1  vault.local" >> /etc/hosts
 ```
 set variables
 ```
-export VAULT_TOKEN=`grep -o "\bs.*"  .tokens`
+export VAULT_TOKEN=`grep -o -m 1 '\bs.*' .tokens`
 export VAULT_ADDR=`sudo kubectl get ingress vault-ingress -n default  -o jsonpath='{"http://"}{.spec.rules[].host}{"\n"}'`
 ```
 
