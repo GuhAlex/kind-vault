@@ -36,9 +36,12 @@ add on hosts file
 ```
 echo "127.0.0.1  vault.local" >> /etc/hosts
 ```
-set variables
+set VAULT_TOKEN variable
 ```
-export VAULT_TOKEN=`grep -o -m 1 '\bs.*' .tokens`
+export VAULT_TOKEN=`grep "Initial Root Token:*" .tokens | grep -o "\bs.*"`
+```
+set VAULT_ADDR variable
+```
 export VAULT_ADDR=`sudo kubectl get ingress vault-ingress -n default  -o jsonpath='{"http://"}{.spec.rules[].host}{"\n"}'`
 ```
 
