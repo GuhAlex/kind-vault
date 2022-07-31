@@ -22,7 +22,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 deploy vault with helm
 ```
 helm repo add hashicorp https://helm.releases.hashicorp.com
-helm install vault hashicorp/vault
+helm install vault hashicorp/vault --version 0.19.0
 ```
 set the vault ingress
 ```
